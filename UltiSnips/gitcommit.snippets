@@ -1,0 +1,11 @@
+###########################################################################
+#                        Git commit message Snippets                      #
+###########################################################################
+priority -50
+
+snippet sll
+`#!/bin/bash
+branch_name=$(cd ../ && git symbolic-ref --short HEAD)
+jira_number=$(echo $branch_name | sed 's/[A-Z]\+-\([0-9]\+\).*/\1/g')
+echo "SUPLIGHT-$jira_number: ${1}"`
+endsnippet
