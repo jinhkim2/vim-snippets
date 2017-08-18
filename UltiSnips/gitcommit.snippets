@@ -9,3 +9,19 @@ branch_name=$(cd ../ && git symbolic-ref --short HEAD)
 jira_number=$(echo $branch_name | sed 's/[A-Z]\+-\([0-9]\+\).*/\1/g')
 echo "SUPLIGHT-$jira_number: ${1}"`
 endsnippet
+
+snippet trkk
+`#!/bin/bash
+branch_name=$(cd ../ && git symbolic-ref --short HEAD)
+jira_number=$(echo $branch_name | sed 's/[A-Z]\+-\([0-9]\+\).*/\1/g')
+jira_url=$(echo "https://jira.ndg.intel.com/browse/SUPLIGHT-$jira_number")
+url_result=$(curl -s --head $jira_url | head -n 1 | grep "HTTP/1.[01] [23]..")
+output_message=""
+if [[ $url_result == "" ]]; then
+	output_message="URL does not exist"
+else
+	output_message=$jira_url${1}
+fi
+echo "Tracked-On: $output_message" 
+`
+endsnippet
