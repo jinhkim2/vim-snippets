@@ -145,4 +145,50 @@ snippet us
 'use strict'`!p snip.rv = semi(snip)`
 endsnippet
 
+# WAT JS/TS snippets
+snippet newview
+new WAT.View({
+    ${1}
+});
+endsnippet
+
+snippet newlabel
+new WAT.Label({
+    ${1}
+});
+endsnippet
+
+snippet newmedia
+new WAT.MediaView({
+    ${1}
+});
+endsnippet
+
+snippet rgb{
+{ r: ${1}, g: ${2}, b: ${3} }
+endsnippet
+
+snippet rgba{
+{ r: ${1}, g: ${2}, b: ${3}, a: ${4} }
+endsnippet
+
+snippet frame{
+{ x: ${1}, y: ${2}, w: ${3}, h: ${4} }
+endsnippet
+
+# comments
+snippet ccm
+/**
+ * ${1}
+ */
+endsnippet
+
+snippet ccml
+/** ${1} */
+endsnippet
+
+snippet ccmi
+/* ${1} */
+endsnippet
+
 # vim:ft=snippets:
